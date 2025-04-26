@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 12:54:26 by ocviller          #+#    #+#             */
-/*   Updated: 2025/04/26 13:07:40 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/04/26 13:15:53 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	*ft_range(int min, int max)
 	i = 0;
 	if (min >= max)
 		return (NULL);
-	array = malloc(sizeof(int) * max - min);
+	array = malloc(sizeof(int) * (max - min));
 	if (!array)
 		return (NULL);
 	while (min < max)

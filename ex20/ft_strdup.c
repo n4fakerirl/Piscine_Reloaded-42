@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 12:35:46 by ocviller          #+#    #+#             */
-/*   Updated: 2025/04/26 12:53:12 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/04/26 14:15:07 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ char	*ft_strdup(char *src)
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i];
+	dest[i] = '\0';
 	return (dest);
 }

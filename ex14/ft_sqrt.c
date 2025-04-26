@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 13:41:01 by ocviller          #+#    #+#             */
-/*   Updated: 2025/04/23 13:49:17 by ocviller         ###   ########.fr       */
+/*   Updated: 2025/04/26 13:37:32 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ int	ft_sqrt(int nb)
 	x = 0;
 	if (nb < 0)
 		return (0);
-	while ((x * x) != nb)
+	while ((x * x) != nb && x < nb)
 	{
 		x++;
 	}
+	if (x >= nb)
+		return (0);
 	return (x);
 }
