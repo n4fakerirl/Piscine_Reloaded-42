@@ -6,26 +6,27 @@
 #    By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/26 20:18:37 by ocviller          #+#    #+#              #
-#    Updated: 2025/04/26 21:16:15 by ocviller         ###   ########.fr        #
+#    Updated: 2025/04/26 21:36:18 by ocviller         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+CC = cc
+CFLAGS = -Wall -Werror -Wextra
 NAME = ft_display_file
-CC = cc 
-CFLAGS = -Wall -Wextra -Werror
 SRC = ft_display_file.c
 OBJ = ft_display_file.o
+OPTIONS = -o $(NAME)
 
-all : $(OBJ)
-	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+all: $(OBJ)
+	$(CC) $(CFLAGS) $(SRC) $(OPTIONS)
 
-$(OBJ) : $(SRC)
+$(OBJ): $(SRC)
 	$(CC) $(CFLAGS) -c $(SRC)
 
-clean :
+clean:
 	rm -f $(OBJ)
 
-fclean : clean
+fclean: clean
 	rm -f $(NAME)
 
-.PHONY: fclean clean all
+.PHONY: all clean fclean

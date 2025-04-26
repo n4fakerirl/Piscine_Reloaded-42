@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/26 19:48:02 by ocviller          #+#    #+#             */
-/*   Updated: 2025/04/26 21:05:30 by ocviller         ###   ########.fr       */
+/*   Created: 2025/04/26 21:34:10 by ocviller          #+#    #+#             */
+/*   Updated: 2025/04/26 21:35:08 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,25 @@ void	ft_putnstr(char *str, int n)
 	write(STDOUT_FILENO, str, n);
 }
 
-void	ft_display_file(char *file)
+void	ft_puterr(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str && str[i])
+	{
+		write(STDERR_FILENO, &str[i], 1);
+		i++;
+	}
+}
+
+void	ft_print_file(char *path)
 {
 	int		fd;
 	char	buffer[BUFFER_SIZE];
 	int		bytes_read;
 
-	fd = open(file, O_RDONLY);
+	fd = open(path, O_RDONLY);
 	bytes_read = read(fd, buffer, BUFFER_SIZE);
 	while (bytes_read > 0)
 	{
@@ -38,16 +50,20 @@ void	ft_display_file(char *file)
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 	}
 	if (bytes_read < 0)
-		write(STDERR_FILENO, "Cannot read file.\n", 19);
+		ft_puterr("Cannot read file.\n");
 	close(fd);
 }
 
 int	main(int argc, char **argv)
 {
 	if (argc < 2)
-		write(STDERR_FILENO, "File name missing.\n", 20);
+	{
+		ft_puterr("File name missing.\n");
+	}
 	else if (argc > 2)
-		write(STDERR_FILENO, "Too many arguments.\n", 21);
+	{
+		ft_puterr("Too many arguments.\n");
+	}
 	else
-		ft_display_file(argv[1]);
+		ft_print_file(argv[1]);
 }
